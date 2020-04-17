@@ -8,17 +8,34 @@
   	crossorigin="anonymous"></script>
 
   	<script type="text/javascript">
-  		var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UCa69WmSayrfvrJNtrYrCDaQ&key=AIzaSyBZ2-UmwBPD39sY4jByCTBAWQiIluskV5w'
+
+  		var uid = prompt('What is the Video ID for your Video? (String of Letters and Numbers at the end of URL)')
+
+
+  		var rurl = 'https://www.googleapis.com/youtube/v3/videos?part=statistics&id=YbJOTdZBX1g&key=AIzaSyBZ2-UmwBPD39sY4jByCTBAWQiIluskV5w'
+  		$.getJSON(rurl, function(data) {
+  			console.log(data);
+			console.log(data.items[0].statistics.dislikeCount)
+
+			$("#rdislikes").text(data.items[0].statistics.dislikeCount);
+
+			var rdislikes = .text(data.items[0].statistics.dislikeCount);
+  		});
+
+  		var curl = 'https://www.googleapis.com/youtube/v3/videos?part=statistics&id=' + uid + '&key=AIzaSyBZ2-UmwBPD39sY4jByCTBAWQiIluskV5w'
   		$.getJSON(url, function(data) {
   			console.log(data);
-			console.log(data.items[0].statistics.subscriberCount)
+			console.log(data.items[0].statistics.dislikeCount)
 
-			$("#subs").text(data.items[0].statistics.subscriberCount);
+			$("#cdislikes").text(data.items[0].statistics.dislikeCount);
+
+			var cdislikes = .text(data.items[0].statistics.dislikeCount);
+
   		});
   	</script>
 </head>
 <body>
-	<h1>Da Fun E Man Currently Has <span id="subs"></span> Epic Subscribers</h1>
+	<h1>Your Video currently has <span id="cdislikes"></span>, while YouTube Rewind 2018 currently has <span id="rdislikes"></span></h1>
 
 <style type="text/css">
 	body{
