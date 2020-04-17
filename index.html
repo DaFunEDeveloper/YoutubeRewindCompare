@@ -56,9 +56,9 @@
 
 		var sprdislikes = document.getElementById("rdislikes"); 
 
-		var scdislikes = spcdislikes.match(/\d+/g).map(Number);
+		var scdislikes = spcdislikes.slice(21, 24)
 
-		var srdislikes = sprdislikes.match(/\d+/g).map(Number);
+		var sprdislikes = spcdislikes.slice(21, 30)
 
 		var cdislikes = parseInt(scdislikes)
 
