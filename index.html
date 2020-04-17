@@ -19,7 +19,7 @@
 
 			$("#rdislikes").text(data.items[0].statistics.dislikeCount);
 
-			var rdislikes = document.getElementById("rdislikes"); 
+			var srdislikes = document.getElementById("rdislikes"); 
   		});
 
   		var curl = 'https://www.googleapis.com/youtube/v3/videos?part=statistics&id=' + uid + '&key=AIzaSyBZ2-UmwBPD39sY4jByCTBAWQiIluskV5w'
@@ -29,7 +29,7 @@
 
 			$("#cdislikes").text(data.items[0].statistics.dislikeCount);
 
-			var cdislikes = document.getElementById("cdislikes"); 
+			var scdislikes = document.getElementById("cdislikes"); 
 
 
 
@@ -38,9 +38,9 @@
   		var nurl = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + uid + '&key=AIzaSyBZ2-UmwBPD39sY4jByCTBAWQiIluskV5w'
   		$.getJSON(nurl, function(data) {
   			console.log(data);
-			console.log(data.items[0].title)
+			console.log(data.items[0].snippet.title)
 
-			$("#name").text(data.items[0].title);
+			$("#name").text(data.items[0].snippet.title);
 
   		});
 
@@ -56,12 +56,21 @@
 	<h1>This Means that "<span id="name"></span>" is currently about <span id="percent"></span> as bad as YouTube Rewind 2018.</h1>
 
 	<script type="text/javascript">
-		var cdislikes = document.getElementById("cdislikes"); 
-		var rdislikes = document.getElementById("rdislikes"); 
+		var scdislikes = document.getElementById("cdislikes"); 
+
+		var srdislikes = document.getElementById("rdislikes"); 
+
+		var cdislikes = parseInt(scdislikes)
+
+		var rdislikes = parseInt(srdislikes)
+
+
 		var bdecimal = Math.round(cdislikes / rdislikes);
 		var decimal = bdecimal.toString();
 		var percent = decimal * 10
+
 		$("#percent").text(percent + '%')
+
 	</script>
 
 <style type="text/css">
