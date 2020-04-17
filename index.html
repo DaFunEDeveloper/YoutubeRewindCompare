@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Live Subscriber Count for Da Fun E Man</title>
+	<script
+  	src="https://code.jquery.com/jquery-3.4.1.js"
+  	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  	crossorigin="anonymous"></script>
+
+  	<script type="text/javascript">
+  		var url = 'https://www.googleapis.com/youtube/v3/channels?part=statistics&id=UCa69WmSayrfvrJNtrYrCDaQ&key=AIzaSyBZ2-UmwBPD39sY4jByCTBAWQiIluskV5w'
+  		$.getJSON(url, function(data) {
+  			console.log(data);
+			console.log(data.items[0].statistics.subscriberCount)
+
+			$("#subs").text(data.items[0].statistics.subscriberCount);
+  		});
+  	</script>
+</head>
+<body>
+	<h1>Da Fun E Man Currently Has <span id="subs"></span> Epic Subscribers</h1>
+
+<style type="text/css">
+	body{
+		font-family: 'Comic Sans MS';
+		text-align: center;
+		background-image: url('logo.jpg');
+			background-repeat: no-repeat;
+		height: 100%;
+		background-position-x: center;
+		background-color: blue;
+		-webkit-text-fill-color: white; /* Will override color (regardless of order) */
+ 	 	-webkit-text-stroke-width: 3px;
+ 		-webkit-text-stroke-color: black;
+	}
+
+	h1{
+		margin-top: 10vw;
+	}
+</style>
+
+</body>
+</html>
