@@ -32,20 +32,32 @@
 			var cdislikes = '<span id="cdislikes"></span>'
 
   		});
+
+  		var nurl = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + uid + '&key=AIzaSyBZ2-UmwBPD39sY4jByCTBAWQiIluskV5w'
+  		$.getJSON(nurl, function(data) {
+  			console.log(data);
+			console.log(data.items[0].title)
+
+			$("#name").text(data.items[0].title);
+
+  		});
+
+  		var bdecimal = Math.round(cdislikes / rdislikes);
+		var decimal = bdecimal.toString();
+		var percent = decimal * 10
+		$("#percent").text(percent + '%')
   	</script>
 </head>
 <body>
-	<h1>Your Video currently has <span id="cdislikes"></span>, while YouTube Rewind 2018 currently has <span id="rdislikes"></span></h1>
+	<h1>YouTube Rewind 2018 is widely known as the worst video on YouTube, and currently has the most dislikes of any video on the platform.</h1>
+	<h1>"<span id="name"></span>" currently has <span id="cdislikes"></span> dislikes, while YouTube Rewind 2018 currently has <span id="rdislikes"></span> dislikes.</h1>
+	<h1>This Means that "<span id="name"></span>" is currently about <span id="percent"></span> as bad as YouTube Rewind 2018.</h1>
 
 <style type="text/css">
 	body{
 		font-family: 'Comic Sans MS';
 		text-align: center;
-		background-image: url('logo.jpg');
-			background-repeat: no-repeat;
-		height: 100%;
-		background-position-x: center;
-		background-color: blue;
+		background-color: red;
 		-webkit-text-fill-color: white; /* Will override color (regardless of order) */
  	 	-webkit-text-stroke-width: 3px;
  		-webkit-text-stroke-color: black;
