@@ -17,9 +17,11 @@
   			console.log(data);
 			console.log(data.items[0].statistics.dislikeCount)
 
+			var rd = rurl.responseJSON
+
 			$("#rdislikes").text(data.items[0].statistics.dislikeCount);
 
-			var srdislikes = document.getElementById("rdislikes"); 
+			var srdislikes = data.items[0].statistics.dislikeCount
   		});
 
   		var curl = 'https://www.googleapis.com/youtube/v3/videos?part=statistics&id=' + uid + '&key=AIzaSyBZ2-UmwBPD39sY4jByCTBAWQiIluskV5w'
@@ -27,10 +29,11 @@
   			console.log(data);
 			console.log(data.items[0].statistics.dislikeCount)
 
+			var cd = curl.responseJSON
+
 			$("#cdislikes").text(data.items[0].statistics.dislikeCount);
 
-			var scdislikes = document.getElementById("cdislikes"); 
-			var scd = data.items[0].statistics.dislkeCount;
+			var scdislikes = data.items[0].statistics.dislikeCount
 
 
 
